@@ -1,0 +1,42 @@
+@import 'app-conf/styles/_mixins.scss';
+@import 'app-conf/styles/variables.scss';
+
+$color--white: #fff;
+$color--white-smoke: #f5f5f5;
+
+$color-background: $color--white;
+
+$background-auth: #dfcdb5;
+$font-auth: #221714;
+
+
+
+
+
+.container {
+  @include font-alpha;
+  // background: red;
+  border-radius: $border-radius;
+  padding: 20px;
+
+  width: 400px;
+  max-width: 400px;
+  margin: 1rem;
+  padding: 2rem;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+  border-radius: $border-radius;
+  background: $background-auth;
+
+ 
+
+}
+
+
+.form__title {
+  @include font-alpha;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: bold;
+  color: $font-auth;
+}

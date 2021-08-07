@@ -1,0 +1,15 @@
+.page {
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  // overflow-y:scroll;
+}
+
+.nav {
+  height: 50px;
+  background: #85bb88;
+  width: 100vw;
+}

@@ -1,0 +1,36 @@
+@import 'app-conf/styles/_mixins.scss';
+@import 'app-conf/styles/variables.scss';
+
+
+// $color-primary: #009579;
+// $color-primary-dark: #007f67;
+// $color-secondary: #252c6a;
+// $color-error: #cc3333;
+// $color-success: #4bb544;
+
+
+
+.form__button { 
+  @include font-alpha;
+  // display: block;
+  width: 100%;
+  padding: 1rem 2rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #fff;
+  border: none;
+  border-radius: $border-radius;
+  outline: none;
+  cursor: pointer;
+  background: $color-primary;
+  transition-property: background;
+  transition-duration: .3s;
+
+  &:hover {
+    background: $color-primary-dark;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
