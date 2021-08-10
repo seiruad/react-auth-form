@@ -8,7 +8,7 @@ const isEmpty = (obj) => {
 
 export const ValidatorSignIn = {
   fields : ['login', 'password'],
-  messageInvalid: 'логин или пароль введены неверно',
+  messageInvalid: 'адрес почты  или пароль введены неверно',
   
   validate: function (values) {
     let messages = {}

@@ -32,7 +32,7 @@ export const ValidatorSignUp = {
     }
 
     if (! /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values[name])) {
-      this.messages.login = 'email введен некорректно'
+      this.messages.login = 'адрес почты введен некорректно'
     }
   },
 

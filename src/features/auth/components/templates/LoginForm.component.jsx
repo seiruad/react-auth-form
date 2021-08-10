@@ -33,7 +33,7 @@ export function LoginForm() {
   return (
     <div className={styles.container}>
       <Form handleSubmit={(e) => authForm.submitForm(e)}>
-        <h1 class={styles.form__title}>Создать</h1>
+        <h1 class={styles.form__title}>Войти</h1>
         <FormInputGroup 
           name='login'
           type='text' 
