@@ -1,0 +1,25 @@
+$border-radius: 4px;
+$color-primary: #009579;
+$color-primary-dark: #007f67;
+$color-secondary: #252c6a;
+$color-error: #cc3333;
+$color-success: #4bb544;
+
+
+
+
+.form__input { 
+  display: block;
+  width: 100%;
+  outline: none;
+  border: 1px solid #dddddd;
+  border-radius: $border-radius;
+  padding: 0.75rem;
+  background: #eeeeee;
+  transition: background 0.2s, border-color 0.2s;
+
+  &:focus {
+    border-color: $color-primary;
+    background: #f5f5f5;
+  }
+}

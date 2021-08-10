@@ -1,0 +1,13 @@
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+.form > * {
+  // margin-top: 1rem;
+  &:first-child {margin-top: 0;}
+  &:last-child {margin-bottom: 0;}
+}

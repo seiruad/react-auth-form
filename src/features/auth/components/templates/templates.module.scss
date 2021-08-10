@@ -1,6 +1,6 @@
 @import 'app-conf/styles/_mixins.scss';
 @import 'app-conf/styles/_variables.scss';
-@import './feature-config/_styles.module.scss';
+@import 'features/auth/feature-config/_styles.module.scss';
 
 
 .container {
@@ -14,7 +14,7 @@
 
   @include theme-aware(background, wrapper-background);
   border-radius: map-get($border-radius, default);
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -26,11 +26,24 @@
   @include theme-aware(color, font);
 }
 
+.form__text {
+  text-align: center;
+}
+
+.form__link {
+  @include theme-aware(color, link-font);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.form__link:hover {
+  text-decoration: underline;
+}
+
 
 @media (max-width: 1000px), screen and (orientation: portrait) { 
   .container {
     box-shadow: none;
-    // width: 0;
     max-width: 370px;
   }
 }

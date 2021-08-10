@@ -1,12 +1,19 @@
 import { useState } from "react"
-import { ondelete } from "../constants/validator"
+import {  ONDELETE_MESSAGE } from "../feature-config/constants"
 
 
 export const useValidator = (Validator) => {
   const [schedules, setSchedules] = useState({})
-  const [isError, setIsError] = useState(false)
+  // const [isError, setIsError] = useState(false)
   const [messages, setMessages] = useState({})
-
+  
+  const validateOnly = (name, values) => {
+    const report = Validator.validateOnly(name, values)
+    setMessages({...messages,  ...report.messages})
+    setSchedules({...schedules, ...report.schedules})
+    
+    return report.isValid
+  }
   const validate = (values, e=null) => {
     if (e) values[e.target.name] = e.target.value
     const {messages, schedules, isValid} = Validator.validate(values)
@@ -17,16 +24,21 @@ export const useValidator = (Validator) => {
     return isValid
   }
 
-  const updateError = (e) => {
-    // 
+  const updateError = (values, e) => {
     const name = e.target.name
-    if (!schedules[name] || schedules[name] === ondelete.DELETE_CURRENT) setMessages({...messages, [name]: ''}) 
-    else if (schedules[name] === ondelete.DELETE_ALL) setMessages({})
+    // const value = e.target.value
+    
+    if (!schedules[name] || schedules[name] === ONDELETE_MESSAGE.DELETE_CURRENT) setMessages({...messages, [name]: ''})
+    else if (schedules[name] === ONDELETE_MESSAGE.DELETE_ALL) setMessages({})
+    else if (schedules[name] === ONDELETE_MESSAGE.DELETE_PASSWORDS) { 
+      setMessages({...messages, password: '', passwordConfirm: ''})
+    }
 
   }
 
 
 
-  const error = {messages, schedules}
-  return [error, validate, updateError]
+  // const error = {messages, schedules}
+  // const hookValidator = {messages, schedules}
+  return {messages, schedules, validate, validateOnly, updateError}
 }

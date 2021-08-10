@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react"
 import { useInputs } from "./useInputs"
 import { useSubmit } from "./useSubmit"
 import { useValidator } from "./useValidator"
@@ -6,30 +5,32 @@ import { useValidator } from "./useValidator"
 
 export const useAuthForm = (Validator) => {
   const [values, handleInput] = useInputs()
-  const [status, handleSubmit] = useSubmit(() => 'hey')
-  const [error, validate, updateError] = useValidator(Validator)
+  const hookSubmit = useSubmit()
+  const hookValidator = useValidator(Validator)
+
+  const { messages, schedules } = hookValidator
 
   const handleChange = e => {
-    updateError(e)
+    hookValidator.updateError(values, e)
     handleInput(e)
 
   }
 
   const submitForm = (e) => {
     e.preventDefault()
-    const isValid = validate(values)
+    const isValid = hookValidator.validate(values)
     if (isValid) {
-      handleSubmit(e)
+      hookSubmit.handleSubmit(e)
     }
   }
 
-  useEffect(() => {
-    console.log('AAAAAAAAAAAAAAAAAAAAAAAAAARRRRRRRRRRRRRR')
-    if (status === 'submitted') {
-      // handleInput()
-    }
-  }, [status])
+  const handleBlur = (e) => {
+    // not implemented
+  }
 
-  const data = {values, error}
-  return [data, handleChange, submitForm]
+
+  return { 
+    values, messages, schedules,
+    handleChange, submitForm, handleBlur 
+  }
 }

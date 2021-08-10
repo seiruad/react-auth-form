@@ -1,0 +1,43 @@
+.page {
+  background: #dfcdb5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+  // overflow-y:scroll;
+}
+
+.successText {
+  font-family: 'Comfortaa', cursive;
+  font-weight: bold;
+  font-size: 2.3rem;
+  color: #693828;
+  text-align: center;
+}
+
+.successTextSecondary {
+  margin-top: 10px;
+  font-size: 1.8rem;
+  text-transform: lowercase;
+  
+
+  .textLink {
+    text-decoration: none;
+    color: #645861;
+    &:active {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
+
+
+@media (hover: hover) {
+  .textLink:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+

@@ -1,11 +1,17 @@
-$border-radius: 8px;
+$border-radius: (
+  default: 8px,
+);
 
+$colors: (
+  error: #cf400e,
+  success: #4bb544,
+);
 
-
-$color-primary: #e7891a;
-$color-primary-dark: #cc7613;
-
-
-$color-secondary: #252c6a;
-$color-error: #cf400e;
-$color-success: #4bb544;
+$alpha-colors: (
+  alpha: #f5f5f5,
+  bravo: #252c6a,
+  charlie: #e7891a,
+  charlie-darker: #cc7613,
+  delta: #dfcdb5,
+  zulu: #000,
+);

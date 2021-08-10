@@ -1,12 +1,34 @@
-@mixin font-alpha {
-  font-family: 'Comfortaa', cursive;
-  font-size: 1rem;
-  font-weight: 500;
+/**
+ * theme-aware - Change color of a css property based on the currently active theme
+ *
+ * @param  {key}     CSS property
+ * @param  {color}   Color name defined in the themes under _color-palette.scss
+ *
+ * @example - @include theme-aware('background', 'color-background');
+ * @returns - background: #FFF;
+ */
+@mixin theme-aware($key, $color) {
+  @each $theme-name, $theme-color in $themes {
+    @if $theme-name == 'alpha' {
+      #{$key}: map-get(map-get($themes, $theme-name), $color)
+    }  @else {
+      &.theme-#{$theme-name}  {
+        #{$key}: map-get(map-get($themes, $theme-name), $color)
+      }
+    }
+  }
 }
 
 
-@mixin font-beta {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1rem;
-  font-weight: 500;
-}
+// @mixin font-alpha {
+//   font-family: 'Comfortaa', cursive;
+//   font-size: 1rem;
+//   font-weight: 500;
+// }
+
+
+// @mixin font-beta {
+//   font-family: 'Open Sans', sans-serif;
+//   font-size: 1rem;
+//   font-weight: 500;
+// }

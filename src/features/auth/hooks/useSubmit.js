@@ -1,15 +1,12 @@
-import { useState } from "react"
+import { useHistory } from "react-router-dom"
 
 
-export const useSubmit = (fetchFunction) => {
-  const [status, setStatus] = useState('edit')
-
+export const useSubmit = () => {
+  const history = useHistory()
   const handleSubmit = async (e) => {
     e.preventDefault()
-    setStatus('submitted')
-    alert('Submitted')
+    history.push('/page-success')
   }
   
-  // const handleInput = handleChange
-  return [status, handleSubmit]
+  return { handleSubmit }
 }

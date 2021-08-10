@@ -1,0 +1,49 @@
+$alpha: #f5f5f5;
+$bravo: #252c6a;
+$charlie: #e7891a;
+$charlie-darker: #cc7613;
+$delta: #dfcdb5;
+$zulu: #000;
+
+$error: #cf400e;
+$success: #4bb544;
+
+$bone: #dfcdb5;
+$zeus: #231e15;
+$de-york: #85bb88;
+$leather: #98614f;
+$mountain-mist: #968e9c;
+$fern-green: #477b43;
+$zest: #e7891a;
+$scorpion: #645861;
+$tia-maria: #cf400e;
+$irish-coffee: #693828;
+
+// 
+
+$themes: (
+  alpha: (
+    wrapper-background: $delta,
+
+    button-background: $charlie,
+    button-background-hover: $charlie-darker,
+    button-font: #fff,
+
+    
+    input-border-focus: $charlie,
+    input-background: #d3bda1,
+    input-background-focus: $delta,
+
+    link-font: #645861,
+
+    font: #221714,
+    error: $error,
+    success: $success,
+  ),  
+);
+
+@mixin font {
+  font-family: 'Comfortaa', cursive;
+  font-size: 1rem;
+  font-weight: 500;
+}
