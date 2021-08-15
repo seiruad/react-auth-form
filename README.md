@@ -1,6 +1,6 @@
 ## About The App :wave:
 This is a simple form for logging in or creating an account<br/>
-it uses a client side validation written from scratch
+It uses a client side validation written from scratch
 
 
 
