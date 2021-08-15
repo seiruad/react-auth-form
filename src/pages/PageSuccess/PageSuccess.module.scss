@@ -1,11 +1,18 @@
+@import 'app-config/styles/_mixins.scss';
+@import 'app-config/styles/_variables.scss';
+
 .page {
-  background: #dfcdb5;
+  background: $color-primary;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   min-height: 100vh;
   overflow-x: hidden;
+  // opacity: 0;
+  transition-property: opacity;
+  transition-duration: 1.5s;
+  transition-timing-function: ease-in-out;
   // overflow-y:scroll;
 }
 
@@ -13,7 +20,7 @@
   font-family: 'Comfortaa', cursive;
   font-weight: bold;
   font-size: 2.3rem;
-  color: #693828;
+  color: $color-font-primary;
   text-align: center;
 }
 
@@ -25,7 +32,7 @@
 
   .textLink {
     text-decoration: none;
-    color: #645861;
+    color: $color-secondary;
     &:active {
       text-decoration: underline;
       cursor: pointer;

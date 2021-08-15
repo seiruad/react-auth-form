@@ -1,36 +1,20 @@
-import { useInputs } from "./useInputs"
-import { useSubmit } from "./useSubmit"
+import { useSelector } from "react-redux"
+import { useHistory } from "react-router-dom"
 import { useValidator } from "./useValidator"
 
 
 export const useAuthForm = (Validator) => {
-  const [values, handleInput] = useInputs()
-  const hookSubmit = useSubmit()
+  const history = useHistory()
+  const values = useSelector((state) => state.auth.values)
   const hookValidator = useValidator(Validator)
 
-  const { messages, schedules } = hookValidator
-
-  const handleChange = e => {
-    hookValidator.updateError(values, e)
-    handleInput(e)
-
-  }
-
-  const submitForm = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const isValid = hookValidator.validate(values)
     if (isValid) {
-      hookSubmit.handleSubmit(e)
+      history.push('/page-success')
     }
   }
 
-  const handleBlur = (e) => {
-    // not implemented
-  }
-
-
-  return { 
-    values, messages, schedules,
-    handleChange, submitForm, handleBlur 
-  }
+  return {handleSubmit,}
 }

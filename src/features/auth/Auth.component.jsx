@@ -1,13 +1,13 @@
 // imports
 import React from 'react';
-import { useAuth } from './hooks/useAuth';
 import { LoginForm } from './components/templates/LoginForm.component';
 import { RegisterForm } from './components/templates/RegisterForm.component';
+import { useSelector } from 'react-redux';
 
 
 
 export function Auth() {
-  const { currentForm } = useAuth()
+  const currentForm = useSelector((state) => state.auth.currentForm)
 
   if (currentForm === 'login') {
     return (<LoginForm />)} 

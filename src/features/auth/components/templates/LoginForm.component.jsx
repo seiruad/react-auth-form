@@ -1,57 +1,55 @@
 // react imports
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
 // style and assets imports
 import styles from './templates.module.scss';
-import { EmailIcon } from '../../assets/EmailBlack.component';
-import { LockIcon } from '../../assets/LockBlack.component';
+import { EmailIcon } from '../assets/EmailBlack.component';
+import { LockIcon } from '../assets/LockBlack.component';
 
 // hooks and side-apps imports
 import { useAuthForm } from '../../hooks/useAuthForm';
-import { useAuth } from 'features/auth/hooks/useAuth';
-import { ValidatorSignIn } from 'features/auth/side-apps/ValidatorSIgnIn';
+import { ValidatorSignIn } from 'features/auth/side-effects/ValidatorSignIn';
+
 
 // component imports
 import { Form } from '../elements/Form/Form.component';
 import { FormInputGroup } from '../blocks/FormInputGroup/FormInputGroup.component';
 import { FormButton } from '../elements/FormButton/FormButton.component';
 import { FormText } from '../elements/FormText/FormText.component';
+import { setCurrentForm } from 'features/auth/config/authSlice';
+import { FormMessage } from '../elements/FormMessage/FormMessage.component';
+
 
 
 
 
 export function LoginForm() {
   const authForm = useAuthForm(ValidatorSignIn)
-  const { setCurrentForm } = useAuth()
+  const dispatch = useDispatch()
+  
 
   const handleLinkClick = e => {
     e.preventDefault()
-    setCurrentForm('register')
+    dispatch(setCurrentForm('register'))
   }
 
 
   return (
     <div className={styles.container}>
-      <Form handleSubmit={(e) => authForm.submitForm(e)}>
+      <Form handleSubmit={(e) => authForm.handleSubmit(e)}>
         <h1 class={styles.form__title}>Войти</h1>
+        <FormMessage />
         <FormInputGroup 
           name='login'
           type='text' 
-          value={authForm.values.login}
           placeholder={'Введите адрес почты'}
-          errorMessage={authForm.messages?.login}
-          handleChange={(e) => authForm.handleChange(e)}
-          handleBlur={(e) => authForm.handleBlur(e)}
           icon={<EmailIcon />}
         />
         <FormInputGroup 
           name='password'
           type='password' 
-          value={authForm.values.password}
           placeholder={'Введите пароль'}
-          errorMessage={authForm.messages?.password}
-          handleChange={(e) => authForm.handleChange(e)}
-          handleBlur={(e) => authForm.handleBlur(e)}
           icon={<LockIcon />}
         />
         <FormButton>Продолжить</FormButton>

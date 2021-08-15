@@ -1,0 +1,25 @@
+@import 'app-config/styles/_mixins.scss';
+@import 'app-config/styles/_variables.scss';
+
+.Page {
+  background: $color-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+  // opacity: 0;
+  transition-property: opacity;
+  transition-duration: 1.5s;
+  transition-timing-function: ease-in-out;
+  // overflow-y:scroll;
+}
+
+
+@media (max-width: 1000px), screen { 
+  .Page {
+    padding: 0 15px;
+  }
+}
+

@@ -1,16 +1,19 @@
-.page {
-  background: #dfcdb5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  min-height: 100vh;
-  overflow-x: hidden;
-  // overflow-y:scroll;
-}
+@import 'app-config/styles/_mixins.scss';
+@import 'app-config/styles/_variables.scss';
 
-.nav {
-  height: 50px;
-  background: #85bb88;
-  width: 100vw;
-}
+// .page {
+//   background: $color-primary;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   flex-direction: column;
+//   min-height: 100vh;
+//   overflow-x: hidden;
+//   // overflow-y:scroll;
+// }
+
+// .nav {
+//   height: 50px;
+//   background: #85bb88;
+//   width: 100vw;
+// }

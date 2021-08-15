@@ -1,6 +1,6 @@
-@import 'app-conf/styles/_mixins.scss';
-@import 'app-conf/styles/_variables.scss';
-@import 'features/auth/feature-config/_styles.module.scss';
+@import 'app-config/styles/_mixins.scss';
+@import 'app-config/styles/_variables.scss';
+@import 'features/auth/config/_styles.module.scss';
 
 
 
@@ -28,8 +28,8 @@
 
   border-radius: map-get($border-radius, default);
   outline: none;
-  border: 1px solid;
-  @include theme-aware(border-color, input-background);
+  border: 1.5px solid;
+  @include theme-aware(border-color, input-border);
 
   @include theme-aware(background, input-background);
   @include theme-aware(color, font);
