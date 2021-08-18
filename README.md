@@ -2,11 +2,7 @@
 This is a simple form for logging in or creating an account<br/>
 It uses a client side validation written from scratch
 
-
-
-This app is not connected to any database so it only demonstrates the client side functionality<br/>
-
-
+The app is not connected to any database so it only demonstrates the client side functionality<br/>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
